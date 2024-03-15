@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    container_name: 'postgres_ecommerce'
+    environment:
+      - 'POSTGRES_DB=phone'
+      - 'POSTGRES_PASSWORD=sereypanha@14'
+      - 'POSTGRES_USER=sereypanha'
+    ports:
+      - '6543:5432'
+    networks:
+      - 'default'
+    volumes:
+      - './postgres_data:/var/lib/postgresql/data'
+networks:
+  default:
+    driver: 'bridge'
+volumes:
+  postgres_data:
+    driver: 'local'
